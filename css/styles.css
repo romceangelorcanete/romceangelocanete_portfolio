@@ -3598,6 +3598,8 @@ img.u-pull-left {
     border-color: var(--color-1);
 }
 
+
+
 .featured-card__header {
     display: flex;
     justify-content: space-between;
@@ -3610,7 +3612,8 @@ img.u-pull-left {
     color: black;
     font-size: 1.1rem;
     font-weight: 700;
-    padding: 0.4rem 1.2rem;
+    padding: 0.5rem 1.4rem;
+    /* Slightly pill-er */
     border-radius: 50px;
     display: inline-block;
 }
@@ -3619,13 +3622,17 @@ img.u-pull-left {
     color: var(--color-1);
     font-size: 1.2rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .featured-card__title {
     color: white;
-    font-size: 2.4rem;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
+    font-size: 2.6rem;
+    /* Larger as per image */
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-2);
+    /* Ensure Serif (DM Serif Display) */
     font-weight: 700;
 }
 
@@ -3675,20 +3682,21 @@ img.u-pull-left {
     margin-bottom: 3rem;
 }
 
+/* Matching image: outlined pills with color text */
 .tech-pill {
-    background: rgba(var(--color-1-rgb), 0.1);
+    background: transparent;
     color: var(--color-1);
     border: 1px solid var(--color-1);
-    padding: 0.4rem 1.2rem;
+    padding: 0.6rem 1.4rem;
     border-radius: 50px;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .tech-pill.more {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .featured-card__action {
@@ -3702,7 +3710,8 @@ img.u-pull-left {
     border: none;
     border-radius: 8px;
     font-weight: 700;
-    padding: 1.2rem;
+    padding: 1.4rem;
+    /* Taller button */
     text-transform: none;
     letter-spacing: normal;
     display: flex !important;
@@ -3715,16 +3724,19 @@ img.u-pull-left {
     height: auto !important;
     line-height: 1.5 !important;
     text-decoration: none !important;
+    font-size: 1.5rem;
+    /* Larger button text */
 }
 
 .btn--featured:hover {
     background-color: white;
     box-shadow: 0 0 15px var(--color-1);
+    transform: translateY(-2px);
 }
 
 .btn--featured svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     fill: currentColor !important;
     display: block;
 }
@@ -3790,22 +3802,21 @@ img.u-pull-left {
 }
 
 .featured-modal__list li {
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
 }
 
 .featured-modal__list li::before {
-    content: "►";
+    content: "•";
     color: var(--color-1);
     position: absolute;
     left: 0;
-    top: 0;
-    font-size: 1rem;
 }
 
+/* Modal Tags */
 .featured-modal__tags {
     display: flex;
     flex-wrap: wrap;
@@ -3821,20 +3832,43 @@ img.u-pull-left {
     font-size: 1.3rem;
 }
 
+/* Custom Close Button (X) */
 .featured-modal__close-btn {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background: transparent;
-    border: none;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     color: white;
-    font-size: 2rem;
+    /* Default color */
+    font-size: 3rem;
+    line-height: 1;
     cursor: pointer;
     transition: color 0.3s;
+    font-family: var(--font-1);
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 10;
+    width: auto !important;
+    height: auto !important;
+    min-width: unset;
+    min-height: unset;
+    opacity: 0.7;
 }
 
 .featured-modal__close-btn:hover {
-    color: var(--color-1);
+    color: var(--color-1) !important;
+    background: transparent !important;
+    opacity: 1;
+}
+
+/* Hide default basicLightbox close button */
+.basicLightbox::after,
+.basicLightbox::before {
+    display: none !important;
+    content: none !important;
 }
 
 @media screen and (max-width: 800px) {
@@ -4918,4 +4952,143 @@ img.u-pull-left {
 .tech-item:active {
     transform: scale(0.98);
     filter: brightness(0.9);
+}
+
+/* -------------------------------------------------------------------
+ * ## New Featured Card (Uiverse Design)
+ * ------------------------------------------------------------------- */
+.featured-uiverse-card {
+    width: 100%;
+    /* Responsive width instead of fixed 190px */
+    min-height: 254px;
+    background: rgb(38, 38, 38);
+    box-shadow: 7px 5px 10px rgba(0, 0, 0, 0.333);
+    border-radius: 5px;
+    /* Added generic radius */
+    overflow: hidden;
+    /* Ensure content doesn't spill */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.featured-uiverse-card:hover {
+    transform: translateY(-5px);
+}
+
+.uiverse-img-bg {
+    height: 70px;
+    background-color: var(--color-1);
+    /* Replaced #ff5858 with Gold */
+    position: relative;
+}
+
+.uiverse-user-icon {
+    background-color: #414141;
+    /* Keep dark grey or use var(--color-gray-9) */
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -25px;
+    /* Half stick out */
+    left: 10px;
+    /* Replaces transform translate logic for easier responsive handling */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uiverse-user-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--color-1);
+}
+
+.uiverse-user-name {
+    background-color: #414141;
+    /* Label bg */
+    min-width: 60px;
+    height: 20px;
+    /* Slight increase for text fit */
+    border-radius: 5px;
+    color: #fff;
+    /* White text for contrast on dark bg */
+    font-size: 1.4rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.uiverse-id {
+    background-color: #414141;
+    min-width: 100px;
+    height: 20px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    top: 35px;
+    /* Below name */
+    left: 70px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.uiverse-description {
+    background-color: #414141;
+    margin: 35px 10px 10px 10px;
+    /* Top margin accounts for icon overlap */
+    padding: 1rem;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.4rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    /* Fill remaining space */
+}
+
+/*______Social Media / Actions______*/
+.uiverse-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Align to right */
+    padding: 10px 15px;
+    border-top: 2px solid #414141;
+    /* Separator */
+    background: rgb(38, 38, 38);
+}
+
+.uiverse-actions a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.uiverse-actions a:first-child {
+    margin-left: 0;
+}
+
+.uiverse-actions a svg {
+    color: var(--color-1);
+    /* Gold */
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform 0.2s;
+}
+
+.uiverse-actions a:hover svg {
+    transform: scale(1.2);
 }
