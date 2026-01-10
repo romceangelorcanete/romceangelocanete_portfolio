@@ -3769,6 +3769,13 @@ img.u-pull-left {
     padding-bottom: 2rem;
 }
 
+/* Remove border from meta when inside modal header */
+.featured-modal__header .featured-card__meta {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
 .featured-modal__title {
     color: var(--color-1);
     font-size: 3rem;
@@ -5091,4 +5098,18 @@ img.u-pull-left {
 
 .uiverse-actions a:hover svg {
     transform: scale(1.2);
+}
+
+/* Button Primary */
+.btn--primary {
+    background: var(--color-1);
+    color: #000000;
+    border-color: var(--color-1);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+    background: transparent;
+    color: var(--color-1);
+    border-color: var(--color-1);
 }
